@@ -1,0 +1,29 @@
+<h1>Show Todo</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @todo.name %>
+  </li>
+  <li>
+    <strong>Deadline:</strong>
+    <%= @todo.deadline %>
+  </li>
+  <li>
+    <strong>Description:</strong>
+    <%= @todo.description %>
+  </li>
+  <li>
+    <strong>Status:</strong>
+    <%= @todo.status.status %>
+  </li>
+  <li>
+    <strong>Categories:</strong>
+    <%= @categories_string %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.todo_path(@conn, :edit, @todo) %></span> |
+<span><%= link "Back", to: Routes.todo_path(@conn, :index) %></span>

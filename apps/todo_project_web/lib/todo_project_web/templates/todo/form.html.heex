@@ -1,0 +1,31 @@
+<.form let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
+
+  <%= label f, :deadline %>
+  <%= date_select f, :deadline, year: [options: @year_range] %>
+  <%= error_tag f, :deadline %>
+
+  <%= label f, :description %>
+  <%= text_input f, :description %>
+  <%= error_tag f, :description %>
+
+  <%= label f, :status_id %>
+  <%= select f, :status_id, Enum.map(@statuses, &{&1.status, &1.id}), selected: @current_status_id %>
+  <%= error_tag f, :status_id %>
+
+  <%= label f, :category_ids, "Categories" %>
+  <%= multiple_select f, :category_ids, Enum.map(@categories, &{&1.category, &1.id}), selected: @current_category_ids %>
+  <%= error_tag f, :category_ids %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>
