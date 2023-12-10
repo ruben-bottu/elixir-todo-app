@@ -1,4 +1,4 @@
-# IP major - Todo Project
+# Elixir Todo App
 
 A simple todo app where users can keep track of their personal todos.
 
